@@ -22,10 +22,6 @@ def choice_1():
                 vac = Vacancy(job_title=v['name'], job_url=v['alternate_url'], salary=v['salary']['from'],
                         area_name=v['area']['name'])
                 return vac
-        # vac = [v for v in vac if v['salary'] is not None and v['salary']['from'] is not None]
-        # vac = [Vacancy(job_title=v['name'], job_url=v['alternate_url'], salary=v['salary']['from'], area_name=v['area']['name']) for v in vac]
-
-        # [print(v) for v in vac]
 
     elif user_answer_action == 2:
 
@@ -36,22 +32,6 @@ def choice_1():
 
         [print(v) for v in vac]
 
-        # vac = hh_api.sort_vacancies(user_answer_vac)
-        # vac = [Vacancy(job_title=v['name'], job_url=v['alternate_url'], salary=v['salary']['from'],
-        #                area_name=v['area']['name']) for v in vac]
-        #
-        # [print(v) for v in vac]
-
-        # vac = hh_api.get_vacancies(user_answer_vac)
-        # vac = [v for v in vac if v.get('salary') is not None and v.get('salary').get('from') is not None]
-        # vac = [Vacancy(job_title=v['name'], job_url=v['alternate_url'], salary=v['salary']['from'],
-        #                area_name=v['area']['name']) for v in vac]
-        # user_answer_city = input('Введите город\n')
-        # vac = hh_api.sort_vacancies_city(user_answer_vac, user_answer_city)
-        # vac = [Vacancy(job_title=v['name'], job_url=v['alternate_url'], salary=v['salary']['from'],
-        #                area_name=v['area']['name']) for v in vac]
-        #
-        # [print(v) for v in vac]
     elif user_answer_action == 3:
         vac = [v for v in hh_vacancies if v.get('salary') is not None and v.get('salary').get('from') is not None]
         vac = [Vacancy(job_title=v['name'], job_url=v['alternate_url'], salary=v['salary']['from'],
@@ -83,11 +63,7 @@ def choice_2():
     if user_answer_action == 1:
         user_answer_city = input('Введите город\n')
         vac = superjob_api.sort_vacancies_city(user_answer_keyword, user_answer_city)
-        print(vac)
-        # vac = [Vacancy(job_title=v['profession'], job_url=v['link'], salary=v['payment_from'],
-        #                area_name=v['town']['title']) for v in vac]
-        #
-        # [print(v) for v in vac]
+        pass
 
     elif user_answer_action == 2:
         vac = [Vacancy(job_title=v['profession'], job_url=v['link'], salary=v['payment_from'],
@@ -112,3 +88,21 @@ def choice_2():
 
     else:
         print('Некорректный ввод')
+
+
+        # vac = hh_api.sort_vacancies(user_answer_vac)
+        # vac = [Vacancy(job_title=v['name'], job_url=v['alternate_url'], salary=v['salary']['from'],
+        #                area_name=v['area']['name']) for v in vac]
+        #
+        # [print(v) for v in vac]
+
+        # vac = hh_api.get_vacancies(user_answer_vac)
+        # vac = [v for v in vac if v.get('salary') is not None and v.get('salary').get('from') is not None]
+        # vac = [Vacancy(job_title=v['name'], job_url=v['alternate_url'], salary=v['salary']['from'],
+        #                area_name=v['area']['name']) for v in vac]
+        # user_answer_city = input('Введите город\n')
+        # vac = hh_api.sort_vacancies_city(user_answer_vac, user_answer_city)
+        # vac = [Vacancy(job_title=v['name'], job_url=v['alternate_url'], salary=v['salary']['from'],
+        #                area_name=v['area']['name']) for v in vac]
+        #
+        # [print(v) for v in vac]

@@ -96,14 +96,6 @@ class JSONSaver_abc(ABC):
     def add_vacancy(self, vacancy):
         pass
 
-    @abstractmethod
-    def get_vacancies_by_salary(self, salary):
-        pass
-
-    @abstractmethod
-    def delete_vacancy(self, vacancy):
-        pass
-
 
 class JSONSaver(JSONSaver_abc):
     """ Класс для сохранения информации о вакансиях в JSON-файл """
@@ -112,9 +104,3 @@ class JSONSaver(JSONSaver_abc):
         with open('vacancy.txt', 'w', encoding='utf-8') as file:
             s = json.dumps(vacancy, ensure_ascii=False)
             return file.write(s)
-
-    def get_vacancies_by_salary(self, salary):
-        pass
-
-    def delete_vacancy(self, vacancies):
-        pass
