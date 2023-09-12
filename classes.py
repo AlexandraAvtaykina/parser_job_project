@@ -50,20 +50,6 @@ class SuperJobAPI(Api):
         response_text = response.json()
         return response_text['objects']
 
-    def sort_vacancies_city(self, keyword: str, answer: str):
-        filter_list = []
-        vacancy = self.get_vacancies(keyword)
-        for i in vacancy:
-            if i['town']['title'] == answer.title():
-                filter_list.append(vacancy)
-            else:
-                continue
-        return filter_list
-
-    # vacancy = self.get_vacancies(argument)
-    # vacancy = [v for v in vacancy if v.get('salary') is not None and v.get('salary').get('from') is not None]
-    # return sorted(vacancy, key=lambda x: x['salary']['from'], reverse=True)
-
 
 class Vacancy:
     """
@@ -103,4 +89,4 @@ class JSONSaver(JSONSaver_abc):
     def add_vacancy(self, vacancy):
         with open('vacancy.txt', 'w', encoding='utf-8') as file:
             s = json.dumps(vacancy, ensure_ascii=False)
-            return file.write(s)
+            file.write(s)
